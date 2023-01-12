@@ -22,7 +22,7 @@ public class Day1 {
 
 
     private int[] solution() throws IOException {
-        String filePath = "";
+        String filePath = "your file path";
         // constant space
         int[] arr = new int[3];
 
