@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class Day1 {
-    public int problem1() throws Exception {
+    protected int problem1() throws Exception {
         // solution method returns 3 max numbers in ascending order and
         // returning the biggest was asked, so I am returning the number in the last index
         return solution()[2];
     }
 
-    public int problem2() throws Exception {
+    protected int problem2() throws Exception {
         // solution method returns 3 max numbers in ascending order and
         // returning the sum of those max numbers was asked,
         // so I am returning the sum of them
@@ -22,7 +22,7 @@ public class Day1 {
 
 
     private int[] solution() throws IOException {
-        String filePath = "";
+        String filePath = "your file path";
         // constant space
         int[] arr = new int[3];
 
