@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Day2 {
-    public int day2_1() throws IOException {
+    public int problem1() throws IOException {
         return solution(1);
     }
 
-    public int day2_2() throws IOException {
+    public int problem2() throws IOException {
         return solution(2);
     }
 
