@@ -1,5 +1,7 @@
 package day_02;
 
+import day_03.Day3;
+
 import java.io.IOException;
 
 public class Main {
