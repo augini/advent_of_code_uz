@@ -58,21 +58,23 @@ public class Day04 {
             numberRange = lineStr.split(",");       // split line into two parts by comma
             numsberList01 = numberRange[0].split("-");  // split numbers by -
             numsberList02 = numberRange[1].split("-");  // split numbers by -
+            int num1=Integer.parseInt(numsberList01[0]),
+                    num2=Integer.parseInt(numsberList01[1]),
+                    num3=Integer.parseInt(numsberList02[0]),
+                    num4=Integer.parseInt(numsberList02[1]);
 
-//            5-7,7-9 overlaps in a single section, 7.
-//            2-8,3-7 overlaps all of the sections 3 through 7.
-//            6-6,4-6 overlaps in a single section, 6.
-//            2-6,4-8 overlaps in sections 4, 5, and 6.
+// strategy: Check the cases when it does not overlap at all, and count the overlapping ones in else condition!
+            // two non-overlapping cases:
+            // 2-3, 4-5
+            //4-5, 2-3
 
-            if (Integer.parseInt(numsberList01[0]) <= Integer.parseInt(numsberList02[0])) {
-                if (Integer.parseInt(numsberList01[1]) >= Integer.parseInt(numsberList02[1]) || Integer.parseInt(numsberList01[1]) >= Integer.parseInt(numsberList02[0])) {
-                    result++;
-                }
-            } else if (Integer.parseInt(numsberList01[0]) >= Integer.parseInt(numsberList02[0])) {
-                if (Integer.parseInt(numsberList01[0]) <= Integer.parseInt(numsberList02[1])) {
-                    result++;
-                }
-
+            if (num2 < num3 || num1 > num4) {
+                System.out.println(lineStr + " NOT OVERLAPPING");
+                continue;
+            }
+            else{
+                result++;
+                System.out.println(lineStr + " OVERLAPS");
             }
         }
         return result;
