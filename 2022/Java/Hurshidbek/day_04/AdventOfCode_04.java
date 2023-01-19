@@ -4,6 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+/**
+ * @author: Kodirov Hurshidbek
+ * Date : 18.01.2023
+ * Time : 22:00 PM
+ */
+
+
 public class AdventOfCode_04 {
 
     int ans1 = 0;
@@ -41,4 +49,8 @@ public class AdventOfCode_04 {
         bufferedReader.close();
 
     }
+
+    /* Big O analyse
+     Time Complexity:  ;
+     Space Complexity:  */
 }

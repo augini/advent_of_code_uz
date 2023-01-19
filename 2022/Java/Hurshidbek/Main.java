@@ -14,7 +14,7 @@ import day_05.AdventOfCode_05;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        run(4);
+        run(5);
 
     }
 
@@ -61,9 +61,9 @@ public class Main {
         return "Advent Of Code -> day " + day + " -> part " + part + " -> ";
     }
 
-    private static String filePath(int day){
+    private static String filePath(int day) {
         return day < 9
                 ? "2022\\Java\\Hurshidbek\\day_0" + day + "\\aoc_0" + day + ".txt"
-                : "2022\\Java\\Hurshidbek\\day_" + day + "\\aoc_" + day + ".txt" ;
+                : "2022\\Java\\Hurshidbek\\day_" + day + "\\aoc_" + day + ".txt";
     }
 }
