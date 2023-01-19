@@ -13,7 +13,7 @@ import java.util.Map;
  */
 
 
-public class AdventOfCode_3 {
+public class AdventOfCode_03 {
 
     HashMap<Character, Integer> alp = new HashMap<>();
     String filePath;
@@ -82,7 +82,7 @@ public class AdventOfCode_3 {
         return sum;
     }
 
-    public AdventOfCode_3(String filePath) {
+    public AdventOfCode_03(String filePath) {
         this.filePath = filePath;
         for (int i = 0; i < 26; i++) {
             alp.put((char)(i+'a'), i+1);

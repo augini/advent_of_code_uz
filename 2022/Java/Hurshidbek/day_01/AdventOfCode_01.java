@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 
 
-public class AdventOfCode_1 {
+public class AdventOfCode_01 {
 
     int[] ans; // new int[]{max1, max2, max3};
 
@@ -30,7 +30,7 @@ public class AdventOfCode_1 {
     }
 
 
-    public AdventOfCode_1(int maxCount, String filePath) throws IOException {
+    public AdventOfCode_01(int maxCount, String filePath) throws IOException {
         ans = new int[maxCount];
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
 

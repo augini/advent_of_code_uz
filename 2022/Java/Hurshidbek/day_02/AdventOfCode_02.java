@@ -1,7 +1,6 @@
 package day_02;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,7 +13,7 @@ import java.util.Map;
  */
 
 
-public class AdventOfCode_2 {
+public class AdventOfCode_02 {
 
     Map<Character, Integer> map = new HashMap<>();
     char[] car = {'Z','X', 'Y', 'Z', 'X'};
@@ -30,7 +29,7 @@ public class AdventOfCode_2 {
         return score2;
     }
 
-    public AdventOfCode_2(String filePath) throws IOException {
+    public AdventOfCode_02(String filePath) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
 
         uploadMap();
