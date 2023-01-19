@@ -43,6 +43,7 @@ def part1(data):
             total = total + 6 + scores[items[1]]
         else:
             total = total + 3 + scores[items[1]]
+
     return total
 
 
@@ -53,7 +54,6 @@ def part2(data):
     win = {"A": "Y", "B": "Z", "C": "X"}
 
     scores = {"X": 1, "Y": 2, "Z": 3, "A": 1, "B": 2, "C": 3}
-
     total = 0
 
     for item in data:
