@@ -27,7 +27,7 @@ public class Day5 {
         List<Stack<Character>> temp = new ArrayList<>();
         for (int i = 0; i < 9; i++) temp.add(new Stack<>());
 
-        String filepath = "C:\\Tokhirjon\\projects\\advent_of_code_uz\\2022\\Java\\Tokhirjon\\day_05\\originalInput";
+        String filepath = "your file path";
         File file = new File(filepath);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String s;

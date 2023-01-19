@@ -4,10 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Day4 {
     protected int problem1() throws IOException {
@@ -19,7 +15,7 @@ public class Day4 {
     }
 
     private int calculate(int num) throws IOException {
-        File file = new File("C:\\Tokhirjon\\projects\\advent_of_code_uz\\2022\\Java\\Tokhirjon\\day_04\\originalInput");
+        File file = new File("your file path");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String st;
         int sum = 0;
