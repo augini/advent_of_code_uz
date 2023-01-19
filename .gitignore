@@ -365,3 +365,6 @@ FodyWeavers.xsd
 venv
 __pycache__
 .vscode
+/.idea/
+/out/
+/advent_of_code_uz.iml
