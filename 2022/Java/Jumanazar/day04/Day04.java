@@ -11,10 +11,11 @@ import java.io.*;
 public class Day04 {
     // Declaring a string variable
     String lineStr;
-    String[] numberRange;
-    String[] numsberList01;
-    String[] numsberList02;
+    String[] numbersRange;
     BufferedReader br;
+    int result = 0;
+    int num1=0,num2=0,num3=0,num4=0;
+
 
 
     public Day04() throws FileNotFoundException {
@@ -25,8 +26,7 @@ public class Day04 {
     }
 
     public int problem01() throws IOException {
-        int result = 0;
-
+            result = 0;
         // Condition holds true till
         // there is character in a string
 
@@ -36,32 +36,34 @@ public class Day04 {
             // 2nd: starting section number (of 2nd Elf) should be smaller or equal to the 1st Elf's starting section AND ending section number (of the 2nd Elf) should be greater or equal to the ending section number of the 1st Elf. Ex: 25-96, 3-96
 
         while ((lineStr = br.readLine()) != null){
-            numberRange = lineStr.split(",");       // split line into two parts by comma
-            numsberList01 = numberRange[0].split("-");  // split numbers by -
-            numsberList02 = numberRange[1].split("-");  // split numbers by -
+            numbersRange = lineStr.split("[-,]");
+            num1 = Integer.parseInt(numbersRange[0]);
+            num2 = Integer.parseInt(numbersRange[1]);
+            num3 = Integer.parseInt(numbersRange[2]);
+            num4 = Integer.parseInt(numbersRange[3]);
 
-            if(Integer.parseInt(numsberList02[0]) <= Integer.parseInt(numsberList01[0]) &&
-            Integer.parseInt(numsberList02[1]) >= Integer.parseInt(numsberList01[1])){
+            if(num3 <= num1 && num3 >= num2){
+                System.out.println(lineStr + " FULLY OVERLAPS");
                 result++;
             }
-            else if(Integer.parseInt(numsberList01[0]) <= Integer.parseInt(numsberList02[0]) &&
-                    Integer.parseInt(numsberList01[1]) >= Integer.parseInt(numsberList02[1])){
+            else if(num1 <= num2 && num2 >= num4){
+                System.out.println(lineStr + " FULLY OVERLAPS");
                 result++;
+            }
+            else {
+                System.out.println(lineStr + " NOT OVERLAPS");
             }
         }
         return result;
     }
     public int problem02() throws IOException {
-        int result = 0;
-
+        result = 0;
         while ((lineStr = br.readLine()) != null) {
-            numberRange = lineStr.split(",");       // split line into two parts by comma
-            numsberList01 = numberRange[0].split("-");  // split numbers by -
-            numsberList02 = numberRange[1].split("-");  // split numbers by -
-            int num1=Integer.parseInt(numsberList01[0]),
-                    num2=Integer.parseInt(numsberList01[1]),
-                    num3=Integer.parseInt(numsberList02[0]),
-                    num4=Integer.parseInt(numsberList02[1]);
+            numbersRange = lineStr.split("[-,]");       // split line into two parts by comma
+            num1=Integer.parseInt(numbersRange[0]);
+            num2=Integer.parseInt(numbersRange[1]);
+            num3=Integer.parseInt(numbersRange[2]);
+            num4=Integer.parseInt(numbersRange[3]);
 
 // strategy: Check the cases when it does not overlap at all, and count the overlapping ones in else condition!
             // two non-overlapping cases:
