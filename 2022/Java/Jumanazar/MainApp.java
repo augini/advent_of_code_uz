@@ -17,7 +17,7 @@ public class MainApp {
 //        System.out.println(day01.problem02());
 
         Day04 day04 = new Day04();
-//        System.out.println(day04.problem01());
-        System.out.println(day04.problem02());
+        System.out.println(day04.problem01());
+//        System.out.println(day04.problem02());
     }
 }
