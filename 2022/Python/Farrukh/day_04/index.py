@@ -50,6 +50,8 @@ def part2(data):
         first_1, first_2 = int(first_1), int(first_2)
         second_1, second_2 = int(second_1), int(second_2)
 
+        # 2-3, 4-5
+        # 
         if first_2 >= second_1 and first_2 <= second_2:
             res += 1
         elif second_2 >= first_1 and second_2 <= first_2:
