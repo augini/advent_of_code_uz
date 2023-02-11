@@ -54,7 +54,6 @@ def update_tail(head, tail, path: Optional[list] = None):
 
         elif col_diff == 1:
             tail[1] = head[1]
-
             head, tail = update_row(head, tail)
 
     if path is not None:
@@ -68,15 +67,15 @@ def part1(data):
     instructions = []
     path = set()
 
-    for item in data:
-        parts = item.split(" ")
-        parts[1] = int(parts[1])
-        instructions.append(parts)
-
+    print(instructions)
     # 0 -> x, 1 -> y
     coor = {"h": [0, 0], "t": [0, 0]}
 
-    for i in instructions:
+    # O(n)
+    for i in data:
+        parts = i.split(" ")
+        parts[1] = int(parts[1])
+
         diff = [0, 0]
 
         if i[0] == "R":
@@ -88,13 +87,18 @@ def part1(data):
         elif i[0] == "D":
             diff[1] -= 1
 
-        for _ in range(i[1]):
+        # O(m), e.g m = n
+        for _ in range(parts[1]):
             coor["h"][0] = coor["h"][0] + diff[0]
             coor["h"][1] = coor["h"][1] + diff[1]
 
             coor["h"], coor["t"] = update_tail(coor["h"], coor["t"], path)
 
     return len(path)
+
+
+# Time complexity -> n * m -> O(n*m)
+# Space complexity -> O(n)
 
 
 def part2(data):
