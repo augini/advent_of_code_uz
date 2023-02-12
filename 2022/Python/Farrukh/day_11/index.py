@@ -71,7 +71,9 @@ def part1(data, checker, part, round):
                 elif monkey["operation"][0] == "+":
                     item += monkey["operation"][1]
 
-                item = checker(item, 3) if part == 1 else checker(item, lcm)
+                # print(lcm)
+                # item = checker(item, 3) if part == 1 else checker(item, lcm)
+                print(item)
 
                 if item % monkey["test"][0] == 0:
                     monkeys[str(monkey["test"][1])]["starting"].append(item)
@@ -82,6 +84,10 @@ def part1(data, checker, part, round):
 
     res = sorted(list(count.values()))
     return res[-1] * res[-2]
+
+
+# Time complexity: O(n*m)
+# Space complexity: O(n)
 
 
 def solve(puzzle_input):
@@ -97,7 +103,7 @@ def solve(puzzle_input):
 
     # get the solutions for each problem
     solution1 = part1(data, p_1, 1, 20)
-    solution2 = part1(data, p_2, 2, 10000)
+    solution2 = part1(data, p_2, 2, 148)
 
     return solution1, solution2
 

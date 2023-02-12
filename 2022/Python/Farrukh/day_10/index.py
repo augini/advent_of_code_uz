@@ -81,11 +81,11 @@ def part2(data):
         cycle, register = item[0], item[1]
         if register <= (cycle % 40) and (cycle % 40) <= register + 2:
             sys.stdout.flush()
-            time.sleep(0.03)
+            time.sleep(0.02)
             print("\033[1;32m#", end=" ")
         else:
             sys.stdout.flush()
-            time.sleep(0.03)
+            time.sleep(0.02)
             print("\033[91m.", end=" ")
 
         if cycle % 40 == 0:
