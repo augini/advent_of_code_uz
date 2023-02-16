@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Day11 {
     public void day11_1() throws IOException {
-        File file = new File("C:\\Tokhirjon\\projects\\advent_of_code_uz\\2022\\Java\\Tokhirjon\\day_11\\originalInput");
+        File file = new File("C:\\Tokhirjon\\projects\\advent_of_code_uz\\2022\\Java\\Tokhirjon\\day_11\\sampleInput");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String st;
         List<Queue<Integer>> queues = new ArrayList<>();
@@ -58,8 +58,13 @@ public class Day11 {
                 }
             }
         }
+        int sum = 1;
+        for (Integer integer : test) {
+            sum *= integer;
+        }
+        System.out.println(sum);
         int cnt = 0;
-        while (cnt != 20) {
+        while (cnt != 10000) {
             for (int i = 0; i < queues.size(); i++) {
                 Queue<Integer> queue = queues.get(i);
                 while (!queue.isEmpty()) {
@@ -73,16 +78,17 @@ public class Day11 {
                             remove += Integer.parseInt(operation.get(i).substring(1));
                         }
                     }
-                    remove /= 3;
+//                    remove /= 3;
+                    remove = remove % sum;
                     if (remove % test.get(i) == 0) {
                         queues.get(ifTrue.get(i)).add(remove);
-                        if (cnt == 19 && i > ifTrue.get(i)) {
+                        if (cnt == 9999 && i > ifTrue.get(i)) {
                             continue;
                         }
                         stacks.get(ifTrue.get(i)).add(remove);
                     } else {
                         queues.get(ifFalse.get(i)).add(remove);
-                        if (cnt == 19 && i > ifFalse.get(i)) {
+                        if (cnt == 9999 && i > ifFalse.get(i)) {
                             continue;
                         }
                         stacks.get(ifFalse.get(i)).add(remove);
@@ -146,6 +152,10 @@ public class Day11 {
                     }
                 }
             }
+        }
+        int sum = 1;
+        for (Integer integer : test) {
+            sum *= integer;
         }
         int cnt = 0;
         while (cnt != 10000) {
