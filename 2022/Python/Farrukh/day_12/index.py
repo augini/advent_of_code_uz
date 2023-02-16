@@ -3,6 +3,7 @@
 import pathlib
 import sys
 from collections import deque
+import math
 
 
 def parse(puzzle_input, type=1, seperator="\n"):
@@ -17,8 +18,8 @@ def parse(puzzle_input, type=1, seperator="\n"):
         return list(puzzle_input.strip().split(seperator))
 
 
-def part1(data):
-    """Solve part 1."""
+def part(data, part):
+    """Solve parts 1 and 2"""
     grid = []
 
     for line in data:
@@ -27,38 +28,51 @@ def part1(data):
             temp.append(char)
         grid.append(temp)
 
-    q = deque([[(0, 0), "a"]])
-    sides = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+    R = len(grid)
+    C = len(grid[0])
 
-    len_x = len(grid[0])
-    len_y = len(grid)
+    V = [[0 for _ in range(C)] for _ in range(R)]
+
+    for r in range(R):
+        for c in range(C):
+            if grid[r][c] == "S":
+                V[r][c] = 1
+            elif grid[r][c] == "E":
+                V[r][c] = 26
+            else:
+                V[r][c] = ord(grid[r][c]) - ord("a") + 1
+
+    q = deque([])
+
+    for r in range(R):
+        for c in range(C):
+            if part == 1:
+                if grid[r][c] == "S":
+                    q.append(((r, c), 0))
+            elif part == 2:
+                if grid[r][c] == "a":
+                    q.append(((r, c), 0))
+
     visited = set()
 
     while q:
-        curr = q.popleft()
-        index, path = curr
-        visited.add(index)
+        (r, c), count = q.popleft()
+        if (r, c) in visited:
+            continue
 
-        valid = []
+        visited.add((r, c))
 
-        for side in sides:
-            y, x = index[0] + side[0], index[1] + side[1]
-            if x >= 0 and y >= 0 and x < len_x and y < len_y and (y, x) not in visited:
-                valid.append((y, x))
+        if grid[r][c] == "E":
+            return count
 
-        for indices in valid:
-            curr = grid[index[0]][index[1]]
-            new = grid[indices[0]][indices[1]]
+        for y, x in [(-1, 0), (0, 1), (1, 0), (0, -1)]:
+            ry = r + y
+            cx = c + x
 
-            if ord(new) - ord(curr) == 1 and curr == "z":
-                return len(path) + 1
+            if 0 <= ry < R and 0 <= cx < C and V[ry][cx] <= 1 + V[r][c]:
+                q.append(((ry, cx), count + 1))
 
-            if ord(new) - ord(curr) <= 1:
-                q.append([indices, path + new])
-
-
-def part2(data):
-    """Solve part 2."""
+    return 1
 
 
 def solve(puzzle_input):
@@ -67,8 +81,8 @@ def solve(puzzle_input):
     data = parse(puzzle_input, 2)
 
     # get the solutions for each problem
-    solution1 = part1(data)
-    solution2 = part2(data)
+    solution1 = part(data, 1)
+    solution2 = part(data, 2)
 
     return solution1, solution2
 
