@@ -46,43 +46,36 @@ public class Day12 {
                         || ((x == endX && y - 1 == endY) && (list.get(y).charAt(x) == 'z'))
                         || ((x == endX && y + 1 == endY) && (list.get(y).charAt(x) == 'z'))) {
                     b = false;
-                } else {
+                }
+                else {
                     if ((x - 1 >= 0)
                             && !lists.contains(List.of(x - 1, y))) {
-                        if (list.get(y).charAt(x) == 'S' && list.get(y).charAt(x - 1) == 'a') {
-                            newQueue.add(List.of(x - 1, y));
-                            lists.add(List.of(x - 1, y));
-                        } else if (list.get(y).charAt(x - 1) - list.get(y).charAt(x) <= 1) {
+                        if ((list.get(y).charAt(x) == 'S' && list.get(y).charAt(x - 1) == 'a')
+                                || (list.get(y).charAt(x - 1) - list.get(y).charAt(x) <= 1)) {
                             newQueue.add(List.of(x - 1, y));
                             lists.add(List.of(x - 1, y));
                         }
                     }
                     if ((x + 1 < n)
                             && !lists.contains(List.of(x + 1, y))) {
-                        if (list.get(y).charAt(x) == 'S' && list.get(y).charAt(x + 1) == 'a') {
-                            newQueue.add(List.of(x + 1, y));
-                            lists.add(List.of(x + 1, y));
-                        } else if (list.get(y).charAt(x + 1) - list.get(y).charAt(x) <= 1) {
+                        if ((list.get(y).charAt(x) == 'S' && list.get(y).charAt(x + 1) == 'a')
+                                || (list.get(y).charAt(x + 1) - list.get(y).charAt(x) <= 1)) {
                             newQueue.add(List.of(x + 1, y));
                             lists.add(List.of(x + 1, y));
                         }
                     }
                     if ((y - 1 >= 0)
                             && !lists.contains(List.of(x, y - 1))) {
-                        if (list.get(y).charAt(x) == 'S' && list.get(y - 1).charAt(x) == 'a') {
-                            newQueue.add(List.of(x, y - 1));
-                            lists.add(List.of(x, y - 1));
-                        } else if (list.get(y - 1).charAt(x) - list.get(y).charAt(x) <= 1) {
+                        if ((list.get(y).charAt(x) == 'S' && list.get(y - 1).charAt(x) == 'a')
+                                || (list.get(y - 1).charAt(x) - list.get(y).charAt(x) <= 1)) {
                             newQueue.add(List.of(x, y - 1));
                             lists.add(List.of(x, y - 1));
                         }
                     }
                     if ((y + 1 < m)
                             && !lists.contains(List.of(x, y + 1))) {
-                        if (list.get(y).charAt(x) == 'S' && list.get(y + 1).charAt(x) == 'a') {
-                            newQueue.add(List.of(x, y + 1));
-                            lists.add(List.of(x, y + 1));
-                        } else if (list.get(y + 1).charAt(x) - list.get(y).charAt(x) <= 1) {
+                        if ((list.get(y).charAt(x) == 'S' && list.get(y + 1).charAt(x) == 'a')
+                                || (list.get(y + 1).charAt(x) - list.get(y).charAt(x) <= 1)) {
                             newQueue.add(List.of(x, y + 1));
                             lists.add(List.of(x, y + 1));
                         }
@@ -144,43 +137,36 @@ public class Day12 {
                             || ((x == endX && y - 1 == endY) && (list.get(y).charAt(x) == 'z'))
                             || ((x == endX && y + 1 == endY) && (list.get(y).charAt(x) == 'z'))) {
                         b = false;
-                    } else {
+                    }
+                    else {
                         if ((x - 1 >= 0)
                                 && !lists.contains(List.of(x - 1, y))) {
-                            if (list.get(y).charAt(x) == 'S' && list.get(y).charAt(x - 1) == 'a') {
-                                newQueue.add(List.of(x - 1, y));
-                                lists.add(List.of(x - 1, y));
-                            } else if (list.get(y).charAt(x - 1) - list.get(y).charAt(x) <= 1) {
+                            if ((list.get(y).charAt(x) == 'S' && list.get(y).charAt(x - 1) == 'a')
+                                    || (list.get(y).charAt(x - 1) - list.get(y).charAt(x) <= 1)) {
                                 newQueue.add(List.of(x - 1, y));
                                 lists.add(List.of(x - 1, y));
                             }
                         }
                         if ((x + 1 < n)
                                 && !lists.contains(List.of(x + 1, y))) {
-                            if (list.get(y).charAt(x) == 'S' && list.get(y).charAt(x + 1) == 'a') {
-                                newQueue.add(List.of(x + 1, y));
-                                lists.add(List.of(x + 1, y));
-                            } else if (list.get(y).charAt(x + 1) - list.get(y).charAt(x) <= 1) {
+                            if ((list.get(y).charAt(x) == 'S' && list.get(y).charAt(x + 1) == 'a')
+                                    || (list.get(y).charAt(x + 1) - list.get(y).charAt(x) <= 1)) {
                                 newQueue.add(List.of(x + 1, y));
                                 lists.add(List.of(x + 1, y));
                             }
                         }
                         if ((y - 1 >= 0)
                                 && !lists.contains(List.of(x, y - 1))) {
-                            if (list.get(y).charAt(x) == 'S' && list.get(y - 1).charAt(x) == 'a') {
-                                newQueue.add(List.of(x, y - 1));
-                                lists.add(List.of(x, y - 1));
-                            } else if (list.get(y - 1).charAt(x) - list.get(y).charAt(x) <= 1) {
+                            if ((list.get(y).charAt(x) == 'S' && list.get(y - 1).charAt(x) == 'a')
+                                    || (list.get(y - 1).charAt(x) - list.get(y).charAt(x) <= 1)) {
                                 newQueue.add(List.of(x, y - 1));
                                 lists.add(List.of(x, y - 1));
                             }
                         }
                         if ((y + 1 < m)
                                 && !lists.contains(List.of(x, y + 1))) {
-                            if (list.get(y).charAt(x) == 'S' && list.get(y + 1).charAt(x) == 'a') {
-                                newQueue.add(List.of(x, y + 1));
-                                lists.add(List.of(x, y + 1));
-                            } else if (list.get(y + 1).charAt(x) - list.get(y).charAt(x) <= 1) {
+                            if ((list.get(y).charAt(x) == 'S' && list.get(y + 1).charAt(x) == 'a')
+                                    || (list.get(y + 1).charAt(x) - list.get(y).charAt(x) <= 1)) {
                                 newQueue.add(List.of(x, y + 1));
                                 lists.add(List.of(x, y + 1));
                             }
@@ -193,7 +179,7 @@ public class Day12 {
             res.add(cnt);
         }
 
-        System.out.println(res);
-        return 0;
+        Collections.sort(res);
+        return res.get(0);
     }
 }
