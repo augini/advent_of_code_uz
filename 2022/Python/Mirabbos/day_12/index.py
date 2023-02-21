@@ -2,7 +2,7 @@ from collections import deque
 
 def parse():
     # Parses the input
-    f = open("sample_input.txt", "r")
+    f = open("input.txt", "r")
     _input=[]
     t=[]
     while True:
@@ -41,8 +41,8 @@ def part1(inp):
     q=deque()
     q.append([0, sr, sc])
     
-    visited={}
-    visited[(sr, sc)]=True
+    visited=set()
+    visited.add((sr, sc))
     
     while q:
         count, r, c = q.popleft()
@@ -54,7 +54,7 @@ def part1(inp):
                 continue
             if ar==fr and ac ==fc:
                 return count+1
-            visited[(ar, ac)]=True
+            visited.add((ar, ac))
             q.append([count+1, ar, ac])
 
 # Big O analyis
@@ -62,8 +62,41 @@ def part1(inp):
 # Space Complexity: O(n)+ O(n) = 2*O(n) = O(n)
 
 
-def part2(data):
-    return data
+def part2(inp):
+    inp=inp
+    def adjacent(r, c):
+        return [[r, c+1], [r-1, c], [r, c-1], [r+1, c]]
+
+    fr=0
+    fc=0
+    for i in range(len(inp)):
+        for j in range(len(inp[i])):
+            if inp[i][j]=='S':
+                inp[i][j]='a'
+            if inp[i][j]=='E':
+                fr=i
+                fc=j
+                inp[i][j]='z'
+            inp[i][j]=ord(inp[i][j])
+
+    q=deque()
+    q.append([0, fr, fc])
+
+    visited={}
+    visited[(fr, fc)]=True
+
+    while q:
+        count, r, c = q.popleft()
+
+        for ar, ac in adjacent(r, c):
+            if ar>=len(inp) or ac>=len(inp[0]) or ar<0 or ac<0:
+                continue
+            if (ar, ac) in visited or inp[ar][ac]<inp[r][c]-1:
+                continue
+            if inp[ar][ac]==97:
+                return count+1
+            visited[(ar, ac)]=True
+            q.append([count+1, ar, ac])
 
 # Big O analyis
 # Time Complexity:
@@ -76,9 +109,11 @@ def solve():
 
     # get the solutions for each problem
     solution1 = part1(data)
-    # solution2 = part2(data)
+    
+    data = parse()
+    solution2 = part2(data)
 
-    return solution1
+    return solution1, solution2
 
 
 if __name__ == "__main__":
