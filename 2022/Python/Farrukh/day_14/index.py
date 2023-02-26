@@ -59,16 +59,15 @@ def part1(data):
     # get the bottom of the floow as the row that has the lowest coor
     bottom = max(r[1] for r in rocks)
 
-    sands, result = set(), 0
-    count = 0
+    sands, count = set(), 0
 
     while count < 1000:
         count += 1
         sand = (500, 0)
 
         while True:
-            if sand[1] > bottom and not result:
-                return count
+            if sand[1] > bottom:
+                return count - 1
             if (sand[0], sand[1] + 1) not in rocks and (
                 sand[0],
                 sand[1] + 1,
@@ -129,7 +128,7 @@ def part2(data):
             else:
                 break
         if sand == (500, 0):
-            return count + 1
+            return count
         sands.add(sand)
 
     return 1
